@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'drchrono/head.html' %}
+    <title>{% block title %}{% endblock %}</title>
+    <script>{% block script %}{% endblock %}</script>
+</head>
+<body>
+    {% include 'drchrono/messages.html' %}
+    {% if not hide_nav %}{% include 'drchrono/nav.html' %}{% endif %}
+    {% block content %}{% endblock %}
+</body>
+</html>

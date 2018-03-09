@@ -1,0 +1,21 @@
+{% extends 'drchrono/base.html' %}
+{% block content %}
+    <div class="ui middle aligned center aligned">
+    <h2 class="ui center teal header">
+        <div class="text-center content">
+            {{ doctor_name }}'s office
+        </div>
+    </h2>
+    </div>
+    <div class="ui centered grid">
+        <div class="eight wide column">
+            <form class="my-form" action="/kiosk/submit/" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <p>
+                </p>
+                <input type="submit" value="Find appointment!"/>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,76 @@
+.login-button{
+    color: white;
+    padding: 20px;
+    font-size: 16px;
+    display: block;
+    margin: auto;
+    width: 400px;
+    background: lightseagreen;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 1px 1px 0 0 #aaa;
+}
+
+/* Forms */
+.my-form {
+    background: lightgrey;
+    padding: 100px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.my-form label {
+    display: block;
+    font-weight: bold;
+    font-size: 16px;
+    padding-bottom: 10px;
+}
+
+.my-form input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border-style: solid;
+    border: 1px solid gray;
+}
+
+.my-form textarea {
+    width: 100%;
+    font-family: inherit;
+    font-size: 16px;
+    border-radius: 10px;
+    border-style: solid;
+    padding: 15px;
+    height: 150px;
+}
+
+.my-form input[type="submit"] {
+    width: 100%;
+    padding: 20px;
+    background: white;
+    border: 1px solid #aaa;
+    display: block;
+    margin: auto;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.my-form input[type="submit"]:hover {
+    background: white;
+    border: 2px solid green;
+    cursor: pointer;
+}
+
+.my-form select {
+    width: 100%;
+    padding: 20px;
+    background: white;
+    border: 1px solid #aaa;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+}

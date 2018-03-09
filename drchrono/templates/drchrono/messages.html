@@ -1,0 +1,12 @@
+{% if messages %}
+    {% for message in messages %}
+        <div class="ui negative message">
+            <div class="header">
+                Message
+            </div>
+            <p>
+                {{ message }}
+            </p>
+        </div>
+    {% endfor %}
+{% endif %}

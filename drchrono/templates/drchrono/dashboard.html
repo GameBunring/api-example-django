@@ -1,0 +1,118 @@
+{% extends 'drchrono/base.html' %}
+{% block title %}Dashboard{% endblock %}
+
+{% if loading %}
+    {% block script %}
+        $(document).ajaxStart(function () {
+        });
+
+        $(document).ajaxComplete(function() {
+        $(".dimmer").hide();
+        });
+
+{#        $.getJSON("/load_appointments",function(data){#}
+{#        var lines = [];#}
+{#        $.each( data, function( key, val ) {#}
+{#        items.push("#}
+{#        <li id='" + key + "'>" + val + "</li>" );#}
+{#        });#}
+{#        $.each( data.items, function( i, item )) {#}
+{#        lines.push('#}
+{#        <div class="ui divided items">');#}
+{#        lines.push('#}
+{#        <div class="item">');#}
+{#        lines.push('#}
+{#        <div class="image">');#}
+{#            lines.push('<img src="' + item.photo + '"></div>');;#}
+{#        });#}
+{#        });#}
+{#        });#}
+
+        {#    $.get('/load_appointments', function(data){#}
+        {#    });#}
+
+    {% endblock %}
+{% endif %}
+
+{% block content %}
+    <div class="ui segment" id="dashboard">
+        {% if loading %}
+            <div class="ui active dimmer">
+                <div class="ui indeterminate text loader">Wait a second, we are retrieving your appointments!</div>
+            </div>
+        {% endif %}
+        <h4 class="ui horizontal divider header">
+            <i class="eye icon"></i>
+            In Session
+        </h4>
+        <div class="ui divided items" id="in_session">
+            {% for s in in_sessions %}
+                <div class="item">
+                    <div class="image">
+                        <img src={{ s.patient.photo }}>
+                    </div>
+                    <div class="content">
+                        <a class="header">{{ s.patient.first_name }}&nbsp;{{ s.patient.last_name }}</a>
+                        <div class="description">
+                            <p></p>
+                        </div>
+                        <div class="extra">
+                            <a class="ui right floated primary button" href="/complete/{{ s.appointment.id }}">
+                                Complete
+                                <i class="right chevron icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <h4 class="ui horizontal divider header">
+            <i class="hand point right icon"></i>
+            Waiting
+        </h4>
+        <div class="ui divided items" id="waiting">
+            {% for s in waitings %}
+                <div class="item" onload="startTime()">
+                    <div class="image">
+                        <img src={{ s.patient.photo }}>
+                    </div>
+                    <div class="content">
+                        <a class="header">{{ s.patient.first_name }}&nbsp;{{ s.patient.last_name }}</a>
+                        <div id="waiting_time">
+                            <div id="txt"></div>
+                        </div>
+                        <div class="extra">
+                            <a class="ui right floated primary button" href="/meet/{{ s.appointment.id }}">
+                                Meet
+                                <i class="right chevron icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <h4 class="ui horizontal divider header">
+            <i class="eye slash icon"></i>
+            Unseen
+        </h4>
+        <div class="ui divided items" id="unseen">
+            {% for s in unseens %}
+                <div class="item">
+                    <div class="image">
+                        <img src={{ s.patient.photo }}>
+                    </div>
+                    <div class="content">
+                        <a class="header">{{ s.patient.first_name }}&nbsp;{{ s.patient.last_name }}</a>
+                        <div class="description">
+                            <p>Scheduled: {{ s.appointment.scheduled_time}}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <p>{{ avg_wating_time }}</p>
+    </div>
+
+{% endblock %}

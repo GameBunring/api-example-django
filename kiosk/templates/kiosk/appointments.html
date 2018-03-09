@@ -1,0 +1,25 @@
+{% extends 'drchrono/base.html' %}
+{% block content %}
+    <div class="ui divided link items">
+        {% for patient in match_patients %}
+            {% for appointment in patient.appointment_set.all %}
+                {% if not appointment.checked %}
+                    <a class="item" href="/kiosk/verify/{{ appointment.id }}" methods="POST">
+                        <div class="ui tiny image">
+                            <img src={{ patient.photo }}>
+                        </div>
+                        <div class="content">
+                            <div class="header">{{ patient.first_name }} {{ patient.last_name }}</div>
+                            <div class="description">
+                                <p>Scheduled time: {{ appointment.scheduled_time }}</p>
+                                {% if appointment.reason %}
+                                    <p>Reason: {{ appointment.reason }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+{% endblock %}

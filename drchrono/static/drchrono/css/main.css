@@ -11,12 +11,11 @@
     box-shadow: 1px 1px 0 0 #aaa;
 }
 
-/* Forms */
 .my-form {
-    background: lightgrey;
+    background: lightsteelblue;
     padding: 100px;
-    border-radius: 5px;
-    border: 1px solid gray;
+    border-radius: 2px;
+    border: 1px solid cadetblue;
 }
 
 .my-form label {
@@ -31,7 +30,7 @@
     padding: 15px;
     font-size: 16px;
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: 2px;
     border-style: solid;
     border: 1px solid gray;
 }
@@ -40,7 +39,7 @@
     width: 100%;
     font-family: inherit;
     font-size: 16px;
-    border-radius: 10px;
+    border-radius: 5px;
     border-style: solid;
     padding: 15px;
     height: 150px;
@@ -55,7 +54,7 @@
     margin: auto;
     font-size: 16px;
     font-weight: bold;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .my-form input[type="submit"]:hover {
@@ -72,5 +71,5 @@
     display: block;
     font-size: 16px;
     font-weight: bold;
-    border-radius: 10px;
+    border-radius: 5px;
 }
